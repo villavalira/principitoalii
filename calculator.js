@@ -1,79 +1,117 @@
 /* ==========================================================
    PRÍNCIPITO ALII CALCULATOR
-   calculator.js
+   calculator.js v2
 ========================================================== */
 
-class Calculator {
+class AliiCalculator {
 
     constructor() {
 
-        /* ======= Configuración ======= */
+        /* ==========================================
+            CONFIGURACIÓN
+        ========================================== */
 
         this.POINTS_PER_USD = 600000;
 
-        this.DIAMONDS_VALUE = 0.005; // <- provisional
+        this.DIAMOND_VALUE = 0.005; // <- Cambia este valor cuando tengamos la fórmula real
 
-        /* ======= Elementos ======= */
+        /* ==========================================
+            ELEMENTOS
+        ========================================== */
 
-        this.pointsInput =
-            document.getElementById("pointsInput");
+        this.pointsInput = document.querySelector("#pointsInput");
+        this.pointsButton = document.querySelector("#calculatePoints");
+        this.pointsResult = document.querySelector("#usdResult");
 
-        this.pointsButton =
-            document.getElementById("calculatePoints");
+        this.diamondInput = document.querySelector("#diamondInput");
+        this.diamondButton = document.querySelector("#calculateDiamonds");
+        this.diamondResult = document.querySelector("#diamondResult");
 
-        this.pointsResult =
-            document.getElementById("usdResult");
-
-        this.diamondInput =
-            document.getElementById("diamondInput");
-
-        this.diamondButton =
-            document.getElementById("calculateDiamonds");
-
-        this.diamondResult =
-            document.getElementById("diamondResult");
-
-        this.events();
+        this.init();
 
     }
 
-    /* =====================================================
-       EVENTOS
-    ===================================================== */
+    /* ==========================================
+        INICIALIZAR
+    ========================================== */
 
-    events() {
+    init() {
 
-        if (this.pointsButton) {
+        this.loadLastValues();
 
-            this.pointsButton.addEventListener(
-                "click",
-                () => this.calculatePoints()
-            );
-
-        }
-
-        if (this.diamondButton) {
-
-            this.diamondButton.addEventListener(
-                "click",
-                () => this.calculateDiamonds()
-            );
-
-        }
+        this.registerEvents();
 
     }
 
-    /* =====================================================
-       PUNTOS
-    ===================================================== */
+    /* ==========================================
+        EVENTOS
+    ========================================== */
+
+    registerEvents() {
+
+        // Botones
+
+        this.pointsButton?.addEventListener("click", () => {
+
+            this.calculatePoints();
+
+        });
+
+        this.diamondButton?.addEventListener("click", () => {
+
+            this.calculateDiamonds();
+
+        });
+
+        // ENTER
+
+        this.pointsInput?.addEventListener("keydown", e => {
+
+            if (e.key === "Enter") {
+
+                this.calculatePoints();
+
+            }
+
+        });
+
+        this.diamondInput?.addEventListener("keydown", e => {
+
+            if (e.key === "Enter") {
+
+                this.calculateDiamonds();
+
+            }
+
+        });
+
+        // AUTO CALCULAR
+
+        this.pointsInput?.addEventListener("input", () => {
+
+            this.calculatePoints();
+
+        });
+
+        this.diamondInput?.addEventListener("input", () => {
+
+            this.calculateDiamonds();
+
+        });
+
+    }
+
+    /* ==========================================
+        CALCULAR PUNTOS
+    ========================================== */
 
     calculatePoints() {
 
-        const points = Number(this.pointsInput.value);
+        const points = this.parse(this.pointsInput.value);
 
-        if (!this.validate(points)) {
+        if (!this.isValid(points)) {
 
-            this.showError(this.pointsResult);
+            this.pointsResult.textContent = "0.00 USD";
 
             return;
 
@@ -81,128 +119,146 @@ class Calculator {
 
         const usd = points / this.POINTS_PER_USD;
 
-        this.animateValue(
+        this.animateResult(this.pointsResult, usd);
 
-            this.pointsResult,
-
-            usd,
-
-            " USD"
-
-        );
+        localStorage.setItem("alii_points", points);
 
     }
 
-    /* =====================================================
-       DIAMANTES
-    ===================================================== */
+    /* ==========================================
+        CALCULAR DIAMANTES
+    ========================================== */
 
     calculateDiamonds() {
 
-        const diamonds = Number(this.diamondInput.value);
+        const diamonds = this.parse(this.diamondInput.value);
 
-        if (!this.validate(diamonds)) {
+        if (!this.isValid(diamonds)) {
 
-            this.showError(this.diamondResult);
+            this.diamondResult.textContent = "0.00 USD";
 
             return;
 
         }
 
-        const usd = diamonds * this.DIAMONDS_VALUE;
+        const usd = diamonds * this.DIAMOND_VALUE;
 
-        this.animateValue(
+        this.animateResult(this.diamondResult, usd);
 
-            this.diamondResult,
-
-            usd,
-
-            " USD"
-
-        );
+        localStorage.setItem("alii_diamonds", diamonds);
 
     }
 
-    /* =====================================================
-       VALIDACIÓN
-    ===================================================== */
+    /* ==========================================
+        ANIMACIÓN
+    ========================================== */
 
-    validate(value) {
+    animateResult(element, value) {
 
-        return !isNaN(value) && value >= 0;
+        const duration = 500;
 
-    }
-
-    /* =====================================================
-       ERROR
-    ===================================================== */
-
-    showError(element) {
-
-        element.textContent = "Valor no válido";
-
-    }
-
-    /* =====================================================
-       CONTADOR ANIMADO
-    ===================================================== */
-
-    animateValue(element, value, suffix = "") {
-
-        const duration = 700;
-
-        const start = 0;
+        const start = performance.now();
 
         const end = value;
 
-        const startTime = performance.now();
+        const animate = (time) => {
 
-        const step = (currentTime) => {
+            const progress = Math.min((time - start) / duration, 1);
 
-            const progress = Math.min(
+            const current = end * progress;
 
-                (currentTime - startTime) / duration,
-
-                1
-
-            );
-
-            const current =
-
-                start +
-
-                (end - start) * progress;
-
-            element.textContent =
-
-                current.toFixed(2) + suffix;
+            element.textContent = this.money(current);
 
             if (progress < 1) {
 
-                requestAnimationFrame(step);
+                requestAnimationFrame(animate);
 
             }
 
         };
 
-        requestAnimationFrame(step);
+        requestAnimationFrame(animate);
+
+    }
+
+    /* ==========================================
+        FORMATO MONEDA
+    ========================================== */
+
+    money(value) {
+
+        return new Intl.NumberFormat(
+
+            "es-ES",
+
+            {
+
+                minimumFractionDigits:2,
+
+                maximumFractionDigits:2
+
+            }
+
+        ).format(value) + " USD";
+
+    }
+
+    /* ==========================================
+        VALIDACIÓN
+    ========================================== */
+
+    isValid(value) {
+
+        return !isNaN(value) && value >= 0;
+
+    }
+
+    /* ==========================================
+        PARSEAR
+    ========================================== */
+
+    parse(value) {
+
+        return Number(value.replace(",", "."));
+
+    }
+
+    /* ==========================================
+        CARGAR ÚLTIMO CÁLCULO
+    ========================================== */
+
+    loadLastValues() {
+
+        const points = localStorage.getItem("alii_points");
+
+        const diamonds = localStorage.getItem("alii_diamonds");
+
+        if (points) {
+
+            this.pointsInput.value = points;
+
+            this.calculatePoints();
+
+        }
+
+        if (diamonds) {
+
+            this.diamondInput.value = diamonds;
+
+            this.calculateDiamonds();
+
+        }
 
     }
 
 }
 
 /* ==========================================================
-   INICIO
+    START
 ========================================================== */
 
-document.addEventListener(
+document.addEventListener("DOMContentLoaded", () => {
 
-    "DOMContentLoaded",
+    new AliiCalculator();
 
-    () => {
-
-        new Calculator();
-
-    }
-
-);
+});
