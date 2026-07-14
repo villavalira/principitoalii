@@ -5,224 +5,533 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Calculadora ALII | Principito Agencia</title>
 
-    <meta name="description" content="Calculadora Oficial ALII">
+    <meta name="description"
+          content="Calculadora Oficial ALII">
 
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="theme-color"
+          content="#38ff67">
 
-    <!-- ICONOS -->
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+          href="css/styles.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
 
-    <!-- Partículas -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+<!-- ==========================================
+     PARTICLES
+========================================== -->
 
-    <main class="calculator-app">
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
 
-        <!-- HERO -->
+<!-- ==========================================
+     NAVBAR
+========================================== -->
 
-        <section class="hero fade-up">
+<header class="navbar">
 
-            <img
-                src="assets/logo.png"
-                alt="Principito Agencia"
-                class="hero-logo">
+    <div class="nav-container">
 
-            <div class="badge">
+        <a href="#" class="logo">
 
-                <i class="fa-solid fa-crown"></i>
+            <img src="assets/logo.png"
+                 alt="Principito Agencia">
 
-                Agencia Oficial ALII
+            <div>
+
+                <h2>PRINCIPITO</h2>
+
+                <span>
+
+                    Agencia Oficial ALII
+
+                </span>
 
             </div>
 
-            <h1>
+        </a>
 
-                Calculadora ALII
+        <nav>
 
-            </h1>
+            <ul>
 
-            <p>
+                <li>
 
-                Convierte automáticamente tus puntos y diamantes
-                para conocer tus ganancias reales.
+                    <a href="#">
 
-            </p>
+                        Inicio
 
-        </section>
+                    </a>
 
-        <!-- GRID -->
+                </li>
 
-        <section class="calculator-grid">
+                <li>
 
-            <!-- ========================= -->
-            <!-- PUNTOS -->
-            <!-- ========================= -->
+                    <a href="#calculadora">
 
-            <article class="calculator-card glow fade-up">
+                        Calculadora
 
-                <div class="card-title">
+                    </a>
 
-                    <i class="fa-solid fa-star"></i>
+                </li>
 
-                    <span>Puntos → USD</span>
+                <li>
 
-                </div>
+                    <a href="#info">
 
-                <div class="form-group">
+                        Información
 
-                    <label for="pointsInput">
+                    </a>
 
-                        Introduce tus puntos
+                </li>
 
-                    </label>
+            </ul>
 
-                    <input
-                        id="pointsInput"
-                        type="number"
-                        placeholder="Ejemplo: 600000">
+        </nav>
 
-                </div>
+    </div>
 
-                <button
-                    id="calculatePoints"
-                    class="btn-primary">
+</header>
 
-                    <i class="fa-solid fa-calculator"></i>
+<!-- ==========================================
+     CONTENIDO
+========================================== -->
 
-                    Calcular
+<main class="calculator-app">
 
-                </button>
+<!-- ==========================================
+     HERO
+========================================== -->
 
-                <div class="result-box">
+<section class="hero fade-up">
 
-                    <span>
+    <img
+        src="assets/logo.png"
+        alt="Logo Principito"
+        class="hero-logo float">
 
-                        Resultado
+    <div class="badge">
 
-                    </span>
+        <i class="fa-solid fa-crown"></i>
 
-                    <h3 id="usdResult">
+        Agencia Oficial ALII
 
-                        0.00 USD
+    </div>
 
-                    </h3>
+    <h1>
 
-                </div>
+        Calculadora ALII
 
-            </article>
+    </h1>
 
-            <!-- ========================= -->
-            <!-- DIAMANTES -->
-            <!-- ========================= -->
+    <p>
 
-            <article class="calculator-card glow fade-up">
+        Calcula de forma rápida el valor de tus puntos
+        y diamantes.
 
-                <div class="card-title">
+        Una herramienta diseñada para creadores
+        que trabajan con ALII.
 
-                    <i class="fa-solid fa-gem"></i>
+    </p>
 
-                    <span>Diamantes → USD</span>
+</section>
 
-                </div>
+<!-- ==========================================
+     GRID
+========================================== -->
 
-                <div class="form-group">
+<section
+class="calculator-grid"
+id="calculadora">
 
-                    <label for="diamondInput">
+               <!-- ==========================================
+         CALCULADORA PUNTOS
+    ========================================== -->
 
-                        Introduce tus diamantes
+    <article class="calculator-card glow">
 
-                    </label>
+        <div class="card-title">
 
-                    <input
-                        id="diamondInput"
-                        type="number"
-                        placeholder="Ejemplo: 10000">
+            <i class="fa-solid fa-star"></i>
 
-                </div>
+            <span>Conversión de Puntos</span>
 
-                <button
-                    id="calculateDiamonds"
-                    class="btn-primary">
+        </div>
 
-                    <i class="fa-solid fa-calculator"></i>
+        <p class="small-text">
 
-                    Calcular
+            Introduce la cantidad de puntos obtenidos
+            para conocer su valor aproximado en USD.
 
-                </button>
+        </p>
 
-                <div class="result-box">
+        <div class="divider"></div>
 
-                    <span>
+        <div class="form-group">
 
-                        Resultado
+            <label for="pointsInput">
 
-                    </span>
+                ⭐ Puntos
 
-                    <h3 id="diamondResult">
+            </label>
 
-                        0.00 USD
+            <input
+                id="pointsInput"
+                type="number"
+                placeholder="Ejemplo: 600000"
+                autocomplete="off">
 
-                    </h3>
+        </div>
 
-                </div>
+        <button
+            id="calculatePoints"
+            class="btn-primary">
 
-            </article>
+            <i class="fa-solid fa-calculator"></i>
 
-        </section>
+            Calcular
 
-        <!-- INFORMACIÓN -->
+        </button>
 
-        <section class="calculator-card fade-up">
+        <div class="result-box">
 
-            <div class="card-title">
+            <span>
 
-                <i class="fa-solid fa-circle-info"></i>
+                Resultado
 
-                Información
+            </span>
+
+            <h3 id="usdResult">
+
+                0.00 USD
+
+            </h3>
+
+        </div>
+
+    </article>
+
+    <!-- ==========================================
+         CALCULADORA DIAMANTES
+    ========================================== -->
+
+    <article class="calculator-card glow">
+
+        <div class="card-title">
+
+            <i class="fa-solid fa-gem"></i>
+
+            <span>Conversión de Diamantes</span>
+
+        </div>
+
+        <p class="small-text">
+
+            Calcula rápidamente el valor de tus
+            diamantes utilizando la fórmula oficial.
+
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="form-group">
+
+            <label for="diamondInput">
+
+                💎 Diamantes
+
+            </label>
+
+            <input
+                id="diamondInput"
+                type="number"
+                placeholder="Ejemplo: 10000"
+                autocomplete="off">
+
+        </div>
+
+        <button
+            id="calculateDiamonds"
+            class="btn-primary">
+
+            <i class="fa-solid fa-calculator"></i>
+
+            Calcular
+
+        </button>
+
+        <div class="result-box">
+
+            <span>
+
+                Resultado
+
+            </span>
+
+            <h3 id="diamondResult">
+
+                0.00 USD
+
+            </h3>
+
+        </div>
+
+    </article>
+
+</section>
+
+<!-- ==========================================
+     ESTADÍSTICAS
+========================================== -->
+
+<section class="stats-section">
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-bolt"></i>
+
+        <h3>Conversión Instantánea</h3>
+
+        <p>
+
+            Resultados calculados al momento.
+
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <h3>100% Seguro</h3>
+
+        <p>
+
+            Todo el cálculo se realiza en tu navegador.
+
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-mobile-screen"></i>
+
+        <h3>Responsive</h3>
+
+        <p>
+
+            Compatible con móvil, tablet y escritorio.
+
+        </p>
+
+    </div>
+
+</section>
+<!-- ==========================================
+     INFORMACIÓN
+========================================== -->
+
+<section id="info" class="calculator-card fade-up">
+
+    <div class="card-title">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <span>Información</span>
+
+    </div>
+
+    <p class="small-text">
+
+        Esta herramienta ha sido diseñada para ayudar a los
+        creadores de contenido que trabajan con ALII a calcular
+        rápidamente el valor aproximado de sus puntos y diamantes.
+
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="info-grid">
+
+        <div class="info-item">
+
+            <i class="fa-solid fa-star"></i>
+
+            <div>
+
+                <h4>Puntos</h4>
+
+                <p>
+                    Convierte automáticamente tus puntos en USD.
+                </p>
 
             </div>
 
-            <p class="small-text">
+        </div>
 
-                Esta calculadora ha sido desarrollada para ayudarte
-                a calcular rápidamente el valor estimado de tus
-                puntos y diamantes dentro del programa ALII.
+        <div class="info-item">
 
-            </p>
+            <i class="fa-solid fa-gem"></i>
 
-        </section>
+            <div>
 
-        <!-- FOOTER -->
+                <h4>Diamantes</h4>
 
-        <footer>
+                <p>
+                    Calcula el valor estimado de tus diamantes.
+                </p>
 
-            © 2026
+            </div>
 
-            <strong>
+        </div>
 
-                Principito Agencia
+        <div class="info-item">
 
-            </strong>
+            <i class="fa-solid fa-lock"></i>
 
-            · Calculadora Oficial ALII
+            <div>
 
-        </footer>
+                <h4>Privacidad</h4>
 
-    </main>
+                <p>
+                    Ningún dato se envía a servidores externos.
+                    Todo se calcula en tu navegador.
+                </p>
 
-    <script src="js/calculator.js"></script>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     CTA
+========================================== -->
+
+<section class="calculator-card fade-up">
+
+    <div style="text-align:center;">
+
+        <h2>
+
+            👑 ¿Necesitas ayuda con ALII?
+
+        </h2>
+
+        <p class="small-text">
+
+            Ponte en contacto con Principito Agencia para resolver
+            cualquier duda sobre el programa ALII.
+
+        </p>
+
+        <button class="btn-primary">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            Contactar
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        <img
+            src="assets/logo.png"
+            alt="Principito">
+
+    </div>
+
+    <h3>
+
+        PRÍNCIPITO AGENCIA
+
+    </h3>
+
+    <p>
+
+        Agencia Oficial ALII
+
+    </p>
+
+    <div class="footer-social">
+
+        <a href="#">
+
+            <i class="fa-brands fa-instagram"></i>
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-brands fa-tiktok"></i>
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-brands fa-discord"></i>
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-brands fa-youtube"></i>
+
+        </a>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="copyright">
+
+        © 2026 Principito Agencia.
+
+        Todos los derechos reservados.
+
+    </p>
+
+</footer>
+
+</main>
+
+<script src="js/calculator.js"></script>
 
 </body>
 
