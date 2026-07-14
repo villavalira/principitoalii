@@ -1,166 +1,90 @@
-/* ==========================================================
-   PRÍNCIPITO ALII CALCULATOR
-   Version: 2.0
-   Author: Principito
-========================================================== */
-
-/* ===========================
-   GOOGLE FONT
-=========================== */
-
+/* ==========================================================  PRÍNCIPITO ALII CALCULATOR ========================================================== */
+/* ===========================   GOOGLE FONT =========================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* ===========================
-   VARIABLES
-=========================== */
+/* ===========================  VARIABLES =========================== */
 
 :root{
-
     --primary:#38ff67;
     --primary-dark:#19c94b;
     --primary-light:#7dff9b;
-
     --background:#050805;
     --background-light:#0d1610;
-
     --card:#111c14;
-
     --white:#ffffff;
-
     --gray:#a8b6aa;
-
     --success:#38ff67;
-
     --danger:#ff5050;
-
     --border:rgba(56,255,103,.25);
-
     --radius:20px;
-
     --transition:.35s ease;
-
     --shadow:
-
         0 0 15px rgba(56,255,103,.18),
-
         0 0 40px rgba(56,255,103,.08);
-
 }
-
-/* ===========================
-   RESET
-=========================== */
-
+/* ===========================  RESET =========================== */
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
 }
 
 html{
-
     scroll-behavior:smooth;
-
 }
 
 body{
-
     font-family:'Poppins',sans-serif;
-
     background:
-
     radial-gradient(circle at top,#15311d 0%,#07110a 45%,#030403 100%);
-
     color:white;
-
     overflow-x:hidden;
-
     min-height:100vh;
-
 }
 
-/* ===========================
-   BACKGROUND EFFECT
-=========================== */
+/* ===========================  BACKGROUND EFFECT =========================== */
 
 body::before{
-
     content:"";
-
     position:fixed;
-
     width:700px;
-
     height:700px;
-
     background:radial-gradient(circle,var(--primary),transparent 70%);
-
     top:-300px;
-
     left:-200px;
-
     opacity:.08;
-
     filter:blur(80px);
-
     pointer-events:none;
-
 }
 
 body::after{
-
     content:"";
-
     position:fixed;
-
     width:600px;
-
     height:600px;
-
     background:radial-gradient(circle,#1eff68,transparent 70%);
-
     bottom:-300px;
-
     right:-250px;
-
     opacity:.06;
-
     filter:blur(90px);
-
     pointer-events:none;
-
 }
 /* ========================================  VARIABLES ======================================== */
 
 :root {
-
     --bg: #07120b;
     --bg-secondary: #0d1b12;
-
     --card: rgba(20, 35, 23, .85);
-
     --green: #33ff55;
     --green-light: #7dff8b;
     --green-dark: #12b83f;
-
     --text: #ffffff;
     --text-muted: #b8c7ba;
-
     --border: rgba(51,255,85,.35);
-
     --radius: 18px;
-
     --shadow:
-
         0 0 15px rgba(51,255,85,.20),
         0 0 35px rgba(51,255,85,.10);
-
 }
-
 
 /* ========================================   RESET   ======================================== */
 
@@ -171,30 +95,21 @@ body::after{
 }
 
 html{
-
     scroll-behavior:smooth;
-
 }
 
 body{
 
     font-family:
-
     Inter,
     Segoe UI,
     Arial,
     sans-serif;
-
     background:
-
     radial-gradient(circle at top,#17ff65 0%,#09140c 25%,#050505 90%);
-
     color:var(--text);
-
     min-height:100vh;
-
 }
-
 
 /* ========================================   CONTENEDOR  ======================================== */
 
@@ -356,27 +271,16 @@ body{
 /* ========================================   BOTONES   ======================================== */
 
 .btn-primary{
-
-    width:100%;
-
-    margin-top:10px;
-
+    margin-top:10px; 
     padding:18px;
-
     border:none;
-
+   width:100%;
     border-radius:16px;
-
     cursor:pointer;
-
     font-size:1rem;
-
     font-weight:700;
-
     letter-spacing:.5px;
-
     color:#051006;
-
     background:
 
         linear-gradient(
@@ -384,27 +288,18 @@ body{
             var(--primary),
             var(--primary-light)
         );
-
     transition:var(--transition);
-
     position:relative;
-
     overflow:hidden;
 
 }
 
 .btn-primary::before{
-
     content:"";
-
     position:absolute;
-
     top:0;
-
     left:-120%;
-
     width:100%;
-
     height:100%;
 
     background:
@@ -952,6 +847,17 @@ footer strong{
 
 }
 
+.hero-buttons{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:25px;
+}
+
+.hero-buttons .btn-primary{
+    width:auto;
+    margin:0;
+    padding:16px 30px;
+}
 /* ==========================================================
    HALO
 ========================================================== */
