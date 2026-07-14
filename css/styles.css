@@ -1,6 +1,140 @@
-/* ========================================
+/* ==========================================================
+   PRÍNCIPITO ALII CALCULATOR
+   Version: 2.0
+   Author: Principito
+========================================================== */
+
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================
    VARIABLES
-======================================== */
+=========================== */
+
+:root{
+
+    --primary:#38ff67;
+    --primary-dark:#19c94b;
+    --primary-light:#7dff9b;
+
+    --background:#050805;
+    --background-light:#0d1610;
+
+    --card:#111c14;
+
+    --white:#ffffff;
+
+    --gray:#a8b6aa;
+
+    --success:#38ff67;
+
+    --danger:#ff5050;
+
+    --border:rgba(56,255,103,.25);
+
+    --radius:20px;
+
+    --transition:.35s ease;
+
+    --shadow:
+
+        0 0 15px rgba(56,255,103,.18),
+
+        0 0 40px rgba(56,255,103,.08);
+
+}
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+
+    radial-gradient(circle at top,#15311d 0%,#07110a 45%,#030403 100%);
+
+    color:white;
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
+/* ===========================
+   BACKGROUND EFFECT
+=========================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:700px;
+
+    height:700px;
+
+    background:radial-gradient(circle,var(--primary),transparent 70%);
+
+    top:-300px;
+
+    left:-200px;
+
+    opacity:.08;
+
+    filter:blur(80px);
+
+    pointer-events:none;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:600px;
+
+    height:600px;
+
+    background:radial-gradient(circle,#1eff68,transparent 70%);
+
+    bottom:-300px;
+
+    right:-250px;
+
+    opacity:.06;
+
+    filter:blur(90px);
+
+    pointer-events:none;
+
+}
+/* ========================================  VARIABLES ======================================== */
 
 :root {
 
@@ -28,9 +162,7 @@
 }
 
 
-/* ========================================
-   RESET
-======================================== */
+/* ========================================   RESET   ======================================== */
 
 *{
     margin:0;
@@ -64,66 +196,58 @@ body{
 }
 
 
-/* ========================================
-   CONTENEDOR
-======================================== */
+/* ========================================   CONTENEDOR  ======================================== */
 
 .calculator-app{
-
-    width:min(900px,92%);
+    width:min(1100px,92%);
     margin:auto;
-
-    padding:70px 0;
+    padding:80px 0;
 
 }
 
-
-/* ========================================
-   HEADER
-======================================== */
+/* ========================================   HEADER   ======================================== */
 
 .app-header{
-
-    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     margin-bottom:60px;
 
 }
 
+.app-header img{
+    width:130px;
+    margin-bottom:20px;
+    animation:float 5s ease infinite;
+
+}
+
 .app-header h1{
-
-    font-size:3rem;
+    font-size:3.3rem;
     font-weight:800;
-
-    color:white;
-
+    letter-spacing:1px;
     text-shadow:
-
-    0 0 10px var(--green),
-
-    0 0 30px var(--green);
+    0 0 10px var(--primary),
+    0 0 30px var(--primary);
 
 }
 
 .app-header p{
-
-    margin-top:15px;
-
-    color:var(--text-muted);
-
+    margin-top:18px;
+    color:var(--gray);
     font-size:1.1rem;
 
 }
 
 
-/* ========================================
-   TARJETAS
-======================================== */
+/* ========================================   TARJETAS  ======================================== */
 
 .calculator-card{
 
-    background:var(--card);
+    background:rgba(17,28,20,.88);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(16px);
 
     border:1px solid var(--border);
 
@@ -131,40 +255,22 @@ body{
 
     padding:40px;
 
-    margin-bottom:35px;
-
     box-shadow:var(--shadow);
 
-    transition:.35s;
+    transition:var(--transition);
+
+    margin-bottom:35px;
 
 }
 
 .calculator-card:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
-    box-shadow:
-
-    0 0 25px rgba(51,255,85,.35),
-
-    0 0 60px rgba(51,255,85,.12);
+    border-color:var(--primary);
 
 }
-
-.calculator-card h2{
-
-    margin-bottom:25px;
-
-    font-size:1.8rem;
-
-    color:var(--green);
-
-}
-
-
-/* ========================================
-   FORMULARIOS
-======================================== */
+/* ========================================   FORMULARIOS  ======================================== */
 
 .form-group{
 
@@ -172,86 +278,141 @@ body{
 
     flex-direction:column;
 
-    gap:10px;
+    gap:12px;
+
+    margin-bottom:30px;
 
 }
 
-label{
+.form-group label{
+
+    font-size:.95rem;
 
     font-weight:600;
 
-    color:white;
+    color:var(--gray);
+
+    letter-spacing:.5px;
 
 }
 
-input{
+.form-group input{
 
-    padding:18px;
+    width:100%;
 
-    border-radius:14px;
+    padding:18px 22px;
 
-    border:2px solid rgba(255,255,255,.08);
+    border-radius:16px;
 
-    background:#0d1710;
+    border:2px solid transparent;
+
+    background:#0d1610;
 
     color:white;
 
-    font-size:18px;
+    font-size:1.1rem;
+
+    transition:var(--transition);
 
     outline:none;
 
-    transition:.25s;
+}
+
+.form-group input::placeholder{
+
+    color:#6f7a72;
 
 }
 
-input:focus{
+.form-group input:hover{
 
-    border-color:var(--green);
+    border-color:rgba(56,255,103,.18);
+
+}
+
+.form-group input:focus{
+
+    border-color:var(--primary);
 
     box-shadow:
 
-    0 0 15px rgba(51,255,85,.30);
+        0 0 0 4px rgba(56,255,103,.08),
+
+        0 0 18px rgba(56,255,103,.20);
 
 }
 
 
-/* ========================================
-   BOTONES
-======================================== */
+/* ========================================   BOTONES   ======================================== */
 
 .btn-primary{
 
-    margin-top:30px;
-
     width:100%;
+
+    margin-top:10px;
 
     padding:18px;
 
     border:none;
 
-    border-radius:14px;
+    border-radius:16px;
 
     cursor:pointer;
 
-    font-size:18px;
+    font-size:1rem;
 
     font-weight:700;
 
-    color:#07120b;
+    letter-spacing:.5px;
+
+    color:#051006;
 
     background:
 
-    linear-gradient(
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
 
-    135deg,
+    transition:var(--transition);
 
-    var(--green),
+    position:relative;
 
-    var(--green-light)
+    overflow:hidden;
 
-    );
+}
 
-    transition:.25s;
+.btn-primary::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    transition:.7s;
+
+}
+
+.btn-primary:hover::before{
+
+    left:120%;
 
 }
 
@@ -261,9 +422,15 @@ input:focus{
 
     box-shadow:
 
-    0 0 20px rgba(51,255,85,.45),
+        0 0 18px rgba(56,255,103,.30),
 
-    0 0 45px rgba(51,255,85,.20);
+        0 0 45px rgba(56,255,103,.18);
+
+}
+
+.btn-primary:active{
+
+    transform:scale(.98);
 
 }
 
@@ -276,21 +443,37 @@ input:focus{
 
     margin-top:35px;
 
+    padding:30px;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(56,255,103,.08),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(56,255,103,.15);
+
     text-align:center;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    padding-top:30px;
 
 }
 
 .result-box span{
 
-    color:var(--text-muted);
-
     display:block;
 
+    color:var(--gray);
+
+    font-size:.9rem;
+
     margin-bottom:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
 
 }
 
@@ -298,28 +481,82 @@ input:focus{
 
     font-size:3rem;
 
-    color:var(--green);
+    color:var(--primary);
+
+    font-weight:800;
 
     text-shadow:
 
-    0 0 10px var(--green),
+        0 0 10px rgba(56,255,103,.35),
 
-    0 0 25px var(--green);
+        0 0 35px rgba(56,255,103,.15);
+
+    transition:.4s;
+
+}
+/* ==========================================================
+   SEPARADOR
+========================================================== */
+
+.divider{
+
+    width:100%;
+
+    height:1px;
+
+    margin:45px 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(56,255,103,.35),
+            transparent
+        );
 
 }
 
 
-/* ========================================
+/* ==========================================================
    CARD DESHABILITADA
-======================================== */
+========================================================== */
 
 .disabled{
 
     opacity:.45;
 
+    filter:grayscale(.3);
+
+}
+/* ==========================================================
+   ICONOS
+========================================================== */
+
+.icon{
+
+    color:var(--primary);
+
+    margin-right:8px;
+
 }
 
 
+/* ==========================================================
+   TEXTO PEQUEÑO
+========================================================== */
+
+.small-text{
+
+    color:var(--gray);
+
+    font-size:.85rem;
+
+    margin-top:15px;
+
+    text-align:center;
+
+}
 /* ========================================
    RESPONSIVE
 ======================================== */
@@ -341,6 +578,664 @@ input:focus{
 .result-box h3{
 
     font-size:2.3rem;
+
+}
+
+}
+/* ==========================================================
+   EFECTOS DE CRISTAL
+========================================================== */
+
+.calculator-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.calculator-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.05),
+        transparent 40%
+    );
+
+    pointer-events:none;
+
+}
+
+.calculator-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    background:rgba(56,255,103,.08);
+
+    top:-120px;
+
+    right:-120px;
+
+    filter:blur(45px);
+
+}
+
+
+/* ==========================================================
+   GLOW PULSANTE
+========================================================== */
+
+.glow{
+
+    animation:glowPulse 3s infinite;
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+
+        box-shadow:
+            0 0 0 rgba(56,255,103,.15);
+
+    }
+
+    50%{
+
+        box-shadow:
+            0 0 25px rgba(56,255,103,.35);
+
+    }
+
+    100%{
+
+        box-shadow:
+            0 0 0 rgba(56,255,103,.15);
+
+    }
+
+}
+
+
+/* ==========================================================
+   EFECTO FLOTANTE
+========================================================== */
+
+.float{
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   APARICIÓN SUAVE
+========================================================== */
+
+.fade-up{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#08110b;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+
+        var(--primary),
+
+        var(--primary-dark)
+
+    );
+
+    border-radius:100px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-light);
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:70px;
+
+    text-align:center;
+
+    color:var(--gray);
+
+    font-size:.9rem;
+
+    padding:30px 0;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+}
+
+footer strong{
+
+    color:var(--primary);
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:900px){
+
+    .calculator-app{
+
+        width:94%;
+
+        padding:50px 0;
+
+    }
+
+    .app-header h1{
+
+        font-size:2.5rem;
+
+    }
+
+    .calculator-card{
+
+        padding:28px;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .app-header img{
+
+        width:90px;
+
+    }
+
+    .app-header h1{
+
+        font-size:2rem;
+
+    }
+
+    .app-header p{
+
+        font-size:.95rem;
+
+    }
+
+    .calculator-card{
+
+        padding:22px;
+
+    }
+
+    .result-box h3{
+
+        font-size:2.3rem;
+
+    }
+
+    .btn-primary{
+
+        padding:16px;
+
+    }
+
+}
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+
+    position: relative;
+    text-align: center;
+    margin-bottom: 80px;
+    z-index: 2;
+
+}
+
+.hero-logo {
+
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+
+    animation: floatLogo 5s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 12px rgba(56,255,103,.35))
+        drop-shadow(0 0 35px rgba(56,255,103,.20));
+
+}
+
+.hero h1 {
+
+    font-size: 3.6rem;
+    font-weight: 800;
+
+    color: white;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+
+        0 0 10px var(--primary),
+
+        0 0 40px rgba(56,255,103,.25);
+
+}
+
+.hero p {
+
+    color: var(--gray);
+
+    font-size: 1.15rem;
+
+    max-width: 650px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+}
+
+/* ==========================================================
+   HALO
+========================================================== */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    background:
+
+        radial-gradient(circle,
+        rgba(56,255,103,.22),
+        transparent 70%);
+
+    top:-120px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    filter:blur(55px);
+
+    z-index:-1;
+
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.calculator-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+
+    gap:35px;
+
+    margin-top:40px;
+
+}
+
+/* ==========================================================
+   TITULOS DE LAS CARDS
+========================================================== */
+
+.card-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+}
+
+.card-title i{
+
+    color:var(--primary);
+
+    font-size:1.3rem;
+
+}
+
+/* ==========================================================
+   BADGE
+========================================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    background:rgba(56,255,103,.08);
+
+    border:1px solid rgba(56,255,103,.18);
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================================
+   RESULTADO PREMIUM
+========================================================== */
+
+.result-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.result-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        rgba(255,255,255,.05),
+
+        transparent
+
+    );
+
+}
+
+.result-box h3{
+
+    animation:pop .5s ease;
+
+}
+
+/* ==========================================================
+   PARTÍCULAS
+========================================================== */
+
+.particle{
+
+    position:fixed;
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    opacity:.15;
+
+    pointer-events:none;
+
+    animation:particle 18s linear infinite;
+
+}
+
+.particle:nth-child(1){
+
+    left:10%;
+    animation-duration:14s;
+
+}
+
+.particle:nth-child(2){
+
+    left:30%;
+    animation-duration:20s;
+
+}
+
+.particle:nth-child(3){
+
+    left:50%;
+    animation-duration:18s;
+
+}
+
+.particle:nth-child(4){
+
+    left:75%;
+    animation-duration:24s;
+
+}
+
+.particle:nth-child(5){
+
+    left:90%;
+    animation-duration:16s;
+
+}
+
+/* ==========================================================
+   ANIMACIONES
+========================================================== */
+
+@keyframes particle{
+
+    from{
+
+        transform:translateY(100vh);
+
+    }
+
+    to{
+
+        transform:translateY(-120px);
+
+    }
+
+}
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(.85);
+
+        opacity:.3;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes floatLogo{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE HERO
+========================================================== */
+
+@media(max-width:768px){
+
+.hero{
+
+    margin-bottom:55px;
+
+}
+
+.hero-logo{
+
+    width:110px;
+
+    height:110px;
+
+}
+
+.hero h1{
+
+    font-size:2.4rem;
+
+}
+
+.hero p{
+
+    font-size:1rem;
 
 }
 
