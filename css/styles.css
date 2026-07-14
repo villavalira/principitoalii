@@ -1,0 +1,347 @@
+/* ========================================
+   VARIABLES
+======================================== */
+
+:root {
+
+    --bg: #07120b;
+    --bg-secondary: #0d1b12;
+
+    --card: rgba(20, 35, 23, .85);
+
+    --green: #33ff55;
+    --green-light: #7dff8b;
+    --green-dark: #12b83f;
+
+    --text: #ffffff;
+    --text-muted: #b8c7ba;
+
+    --border: rgba(51,255,85,.35);
+
+    --radius: 18px;
+
+    --shadow:
+
+        0 0 15px rgba(51,255,85,.20),
+        0 0 35px rgba(51,255,85,.10);
+
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:
+
+    Inter,
+    Segoe UI,
+    Arial,
+    sans-serif;
+
+    background:
+
+    radial-gradient(circle at top,#17ff65 0%,#09140c 25%,#050505 90%);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+
+/* ========================================
+   CONTENEDOR
+======================================== */
+
+.calculator-app{
+
+    width:min(900px,92%);
+    margin:auto;
+
+    padding:70px 0;
+
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.app-header{
+
+    text-align:center;
+    margin-bottom:60px;
+
+}
+
+.app-header h1{
+
+    font-size:3rem;
+    font-weight:800;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 10px var(--green),
+
+    0 0 30px var(--green);
+
+}
+
+.app-header p{
+
+    margin-top:15px;
+
+    color:var(--text-muted);
+
+    font-size:1.1rem;
+
+}
+
+
+/* ========================================
+   TARJETAS
+======================================== */
+
+.calculator-card{
+
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:40px;
+
+    margin-bottom:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.calculator-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 0 25px rgba(51,255,85,.35),
+
+    0 0 60px rgba(51,255,85,.12);
+
+}
+
+.calculator-card h2{
+
+    margin-bottom:25px;
+
+    font-size:1.8rem;
+
+    color:var(--green);
+
+}
+
+
+/* ========================================
+   FORMULARIOS
+======================================== */
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+label{
+
+    font-weight:600;
+
+    color:white;
+
+}
+
+input{
+
+    padding:18px;
+
+    border-radius:14px;
+
+    border:2px solid rgba(255,255,255,.08);
+
+    background:#0d1710;
+
+    color:white;
+
+    font-size:18px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+input:focus{
+
+    border-color:var(--green);
+
+    box-shadow:
+
+    0 0 15px rgba(51,255,85,.30);
+
+}
+
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.btn-primary{
+
+    margin-top:30px;
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#07120b;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    var(--green),
+
+    var(--green-light)
+
+    );
+
+    transition:.25s;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 0 20px rgba(51,255,85,.45),
+
+    0 0 45px rgba(51,255,85,.20);
+
+}
+
+
+/* ========================================
+   RESULTADO
+======================================== */
+
+.result-box{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding-top:30px;
+
+}
+
+.result-box span{
+
+    color:var(--text-muted);
+
+    display:block;
+
+    margin-bottom:12px;
+
+}
+
+.result-box h3{
+
+    font-size:3rem;
+
+    color:var(--green);
+
+    text-shadow:
+
+    0 0 10px var(--green),
+
+    0 0 25px var(--green);
+
+}
+
+
+/* ========================================
+   CARD DESHABILITADA
+======================================== */
+
+.disabled{
+
+    opacity:.45;
+
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media(max-width:768px){
+
+.app-header h1{
+
+    font-size:2.2rem;
+
+}
+
+.calculator-card{
+
+    padding:25px;
+
+}
+
+.result-box h3{
+
+    font-size:2.3rem;
+
+}
+
+}
