@@ -162,7 +162,11 @@ body{
     margin-top:25px;
 }
 .hero-buttons .btn-primary{
-    margin-left:auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
 }
 /* ========================================   TARJETAS  ======================================== */
 
