@@ -241,9 +241,15 @@ body{
 }
 
 .hero-buttons{
+   width:100%;
     display:flex;
     justify-content:flex-end;
     margin-top:25px;
+}
+.hero-buttons .btn-primary{
+
+    margin-left:auto;
+
 }
 /* ========================================   TARJETAS  ======================================== */
 
