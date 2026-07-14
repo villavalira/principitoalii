@@ -162,111 +162,67 @@ body{
     margin-top:25px;
 }
 .hero-buttons .btn-primary{
-
     margin-left:auto;
-
 }
 /* ========================================   TARJETAS  ======================================== */
 
 .calculator-card{
-
     background:rgba(17,28,20,.88);
-
     backdrop-filter:blur(16px);
-
     border:1px solid var(--border);
-
     border-radius:var(--radius);
-
     padding:40px;
-
     box-shadow:var(--shadow);
-
     transition:var(--transition);
-
     margin-bottom:35px;
-
 }
 
 .calculator-card:hover{
-
     transform:translateY(-5px);
-
     border-color:var(--primary);
-
 }
 /* ========================================   FORMULARIOS  ======================================== */
 
 .form-group{
-
     display:flex;
-
     flex-direction:column;
-
     gap:12px;
-
     margin-bottom:30px;
-
 }
 
 .form-group label{
-
     font-size:.95rem;
-
     font-weight:600;
-
     color:var(--gray);
-
     letter-spacing:.5px;
-
 }
 
 .form-group input{
-
     width:100%;
-
     padding:18px 22px;
-
     border-radius:16px;
-
     border:2px solid transparent;
-
     background:#0d1610;
-
     color:white;
-
     font-size:1.1rem;
-
     transition:var(--transition);
-
     outline:none;
-
 }
 
 .form-group input::placeholder{
-
     color:#6f7a72;
-
 }
 
 .form-group input:hover{
-
     border-color:rgba(56,255,103,.18);
-
 }
 
 .form-group input:focus{
-
     border-color:var(--primary);
-
     box-shadow:
-
-        0 0 0 4px rgba(56,255,103,.08),
-
-        0 0 18px rgba(56,255,103,.20);
-
+       0 0 0 4px rgba(56,255,103,.08),
+       0 0 18px rgba(56,255,103,.20);
 }
-
 
 /* ========================================   BOTONES   ======================================== */
 
@@ -282,7 +238,6 @@ body{
     letter-spacing:.5px;
     color:#051006;
     background:
-
         linear-gradient(
             135deg,
             var(--primary),
@@ -291,7 +246,6 @@ body{
     transition:var(--transition);
     position:relative;
     overflow:hidden;
-
 }
 
 .btn-primary::before{
@@ -301,59 +255,38 @@ body{
     left:-120%;
     width:100%;
     height:100%;
-
     background:
-
         linear-gradient(
             90deg,
             transparent,
             rgba(255,255,255,.45),
             transparent
         );
-
     transition:.7s;
-
 }
 
 .btn-primary:hover::before{
-
     left:120%;
-
 }
 
 .btn-primary:hover{
-
     transform:translateY(-3px);
-
     box-shadow:
-
         0 0 18px rgba(56,255,103,.30),
-
         0 0 45px rgba(56,255,103,.18);
-
 }
 
 .btn-primary:active{
-
     transform:scale(.98);
-
 }
 
-
-/* ========================================
-   RESULTADO
-======================================== */
+/* ========================================  RESULTADO ======================================== */
 
 .result-box{
-
     margin-top:35px;
-
     padding:30px;
-
     border-radius:18px;
-
     background:
-
         linear-gradient(
             180deg,
             rgba(56,255,103,.08),
@@ -361,58 +294,34 @@ body{
         );
 
     border:1px solid rgba(56,255,103,.15);
-
     text-align:center;
-
 }
 
 .result-box span{
-
     display:block;
-
     color:var(--gray);
-
     font-size:.9rem;
-
     margin-bottom:12px;
-
     text-transform:uppercase;
-
     letter-spacing:2px;
-
 }
 
 .result-box h3{
-
     font-size:3rem;
-
     color:var(--primary);
-
     font-weight:800;
-
     text-shadow:
-
-        0 0 10px rgba(56,255,103,.35),
-
+       0 0 10px rgba(56,255,103,.35),
         0 0 35px rgba(56,255,103,.15);
-
     transition:.4s;
-
 }
-/* ==========================================================
-   SEPARADOR
-========================================================== */
+/* ==================================  SEPARADOR  ======================================= */
 
 .divider{
-
     width:100%;
-
     height:1px;
-
     margin:45px 0;
-
     background:
-
         linear-gradient(
             90deg,
             transparent,
@@ -422,376 +331,239 @@ body{
 
 }
 
-
-/* ==========================================================
-   CARD DESHABILITADA
-========================================================== */
+/* ==========================================================  CARD DESHABILITADA ========================================================== */
 
 .disabled{
-
     opacity:.45;
-
     filter:grayscale(.3);
 
 }
-/* ==========================================================
-   ICONOS
-========================================================== */
+/* ==========================================================   ICONOS  ========================================================== */
 
 .icon{
-
     color:var(--primary);
-
     margin-right:8px;
-
 }
 
-
-/* ==========================================================
-   TEXTO PEQUEÑO
-========================================================== */
+/* =======================================================    TEXTO PEQUEÑO  ========================================================== */
 
 .small-text{
-
     color:var(--gray);
-
     font-size:.85rem;
-
     margin-top:15px;
-
     text-align:center;
-
 }
-/* ========================================
-   RESPONSIVE
-======================================== */
+/* ======================================== RESPONSIVE ======================================== */
 
 @media(max-width:768px){
 
 .app-header h1{
-
     font-size:2.2rem;
-
 }
 
 .calculator-card{
-
     padding:25px;
-
 }
 
 .result-box h3{
-
     font-size:2.3rem;
-
 }
-
 }
-/* ==========================================================
-   EFECTOS DE CRISTAL
-========================================================== */
+/* ==========================================================  EFECTOS DE CRISTAL ========================================================= */
 
 .calculator-card{
-
     position:relative;
-
     overflow:hidden;
-
 }
 
 .calculator-card::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:linear-gradient(
         135deg,
         rgba(255,255,255,.05),
         transparent 40%
     );
-
     pointer-events:none;
 
 }
 
 .calculator-card::after{
-
     content:"";
-
     position:absolute;
-
     width:220px;
-
     height:220px;
-
     border-radius:50%;
-
     background:rgba(56,255,103,.08);
-
     top:-120px;
-
     right:-120px;
-
     filter:blur(45px);
-
 }
 
 
-/* ==========================================================
-   GLOW PULSANTE
-========================================================== */
+/* ==========================================================   GLOW PULSANTE ========================================================== */
 
 .glow{
-
     animation:glowPulse 3s infinite;
-
 }
 
 @keyframes glowPulse{
-
     0%{
-
         box-shadow:
             0 0 0 rgba(56,255,103,.15);
-
     }
 
     50%{
-
         box-shadow:
             0 0 25px rgba(56,255,103,.35);
-
     }
 
     100%{
-
         box-shadow:
             0 0 0 rgba(56,255,103,.15);
-
     }
 
 }
 
-
-/* ==========================================================
-   EFECTO FLOTANTE
-========================================================== */
+/* ==========================================================   EFECTO FLOTANTE ========================================================== */
 
 .float{
-
     animation:float 5s ease-in-out infinite;
-
 }
 
 @keyframes float{
-
     0%{
-
         transform:translateY(0);
-
     }
 
     50%{
-
         transform:translateY(-12px);
-
     }
 
     100%{
-
         transform:translateY(0);
-
     }
 
 }
 
 
-/* ==========================================================
-   APARICIÓN SUAVE
-========================================================== */
+/* ==========================================================   APARICIÓN SUAVE  ========================================================== */
 
 .fade-up{
-
     animation:fadeUp .8s ease;
-
 }
 
 @keyframes fadeUp{
-
     from{
-
-        opacity:0;
-
+       opacity:0;
         transform:translateY(25px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
 
 
-/* ==========================================================
-   GRID
-========================================================== */
+/* ==========================================================   GRID ========================================================== */
 
 .grid{
-
     display:grid;
-
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
     gap:35px;
-
 }
 
 
-/* ==========================================================
-   SCROLLBAR
-========================================================== */
+/* ==========================================================   SCROLLBAR  ========================================================== */
 
 ::-webkit-scrollbar{
-
     width:12px;
-
 }
 
 ::-webkit-scrollbar-track{
-
     background:#08110b;
-
 }
 
 ::-webkit-scrollbar-thumb{
-
     background:linear-gradient(
-
         var(--primary),
-
         var(--primary-dark)
-
     );
 
     border-radius:100px;
-
 }
 
 ::-webkit-scrollbar-thumb:hover{
-
     background:var(--primary-light);
-
 }
 
 
-/* ==========================================================
-   FOOTER
-========================================================== */
+/* ==========================================================   FOOTER  ========================================================== */
 
 footer{
-
     margin-top:70px;
-
     text-align:center;
-
     color:var(--gray);
-
     font-size:.9rem;
-
     padding:30px 0;
-
     border-top:1px solid rgba(255,255,255,.06);
-
 }
 
 footer strong{
-
     color:var(--primary);
-
 }
 
 
-/* ==========================================================
-   RESPONSIVE
-========================================================== */
+/* ==========================================================   RESPONSIVE  ========================================================== */
 
 @media (max-width:900px){
-
     .calculator-app{
-
         width:94%;
-
         padding:50px 0;
-
     }
 
     .app-header h1{
-
         font-size:2.5rem;
-
     }
 
     .calculator-card{
-
-        padding:28px;
-
+       padding:28px;
     }
 
 }
 
 @media (max-width:600px){
-
     .app-header img{
-
         width:90px;
-
     }
 
     .app-header h1{
-
         font-size:2rem;
-
     }
 
     .app-header p{
-
         font-size:.95rem;
-
     }
 
     .calculator-card{
-
         padding:22px;
-
-    }
+   }
 
     .result-box h3{
-
         font-size:2.3rem;
-
     }
 
     .btn-primary{
-
         padding:16px;
-
     }
 
 }
-/* ==========================================================
-   HERO
-========================================================== */
+/* ==========================================================   HERO  ========================================================== */
 
 .hero {
-
     position: relative;
     text-align: center;
     margin-bottom: 80px;
@@ -800,16 +572,12 @@ footer strong{
 }
 
 .hero-logo {
-
     width: 150px;
     height: 150px;
     margin: auto;
     margin-bottom: 25px;
-
     border-radius: 50%;
-
     animation: floatLogo 5s ease-in-out infinite;
-
     filter:
         drop-shadow(0 0 12px rgba(56,255,103,.35))
         drop-shadow(0 0 35px rgba(56,255,103,.20));
@@ -817,34 +585,21 @@ footer strong{
 }
 
 .hero h1 {
-
     font-size: 3.6rem;
     font-weight: 800;
-
     color: white;
-
     margin-bottom: 15px;
-
     text-shadow:
-
         0 0 10px var(--primary),
-
         0 0 40px rgba(56,255,103,.25);
-
 }
 
 .hero p {
-
     color: var(--gray);
-
     font-size: 1.15rem;
-
     max-width: 650px;
-
     margin: auto;
-
     line-height: 1.8;
-
 }
 
 .hero-buttons{
@@ -858,301 +613,185 @@ footer strong{
     margin:0;
     padding:16px 30px;
 }
-/* ==========================================================
-   HALO
-========================================================== */
+/* ==========================================================   HALO ========================================================== */
 
 .hero::before{
-
     content:"";
-
     position:absolute;
-
     width:420px;
-
     height:420px;
-
     background:
-
         radial-gradient(circle,
         rgba(56,255,103,.22),
         transparent 70%);
-
     top:-120px;
-
     left:50%;
-
     transform:translateX(-50%);
-
     filter:blur(55px);
-
     z-index:-1;
-
 }
 
-/* ==========================================================
-   GRID
-========================================================== */
+/* ==========================================================   GRID   ========================================================== */
 
 .calculator-grid{
-
     display:grid;
-
     grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
-
     gap:35px;
-
     margin-top:40px;
-
 }
 
-/* ==========================================================
-   TITULOS DE LAS CARDS
-========================================================== */
+/* ==========================================================   TITULOS DE LAS CARDS ========================================================== */
 
 .card-title{
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
     margin-bottom:28px;
-
     font-size:1.35rem;
-
     font-weight:700;
-
 }
 
 .card-title i{
-
     color:var(--primary);
-
     font-size:1.3rem;
-
 }
 
-/* ==========================================================
-   BADGE
-========================================================== */
+/* ==========================================================   BADGE ========================================================== */
 
 .badge{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:8px;
-
     padding:8px 18px;
-
     border-radius:50px;
-
     background:rgba(56,255,103,.08);
-
     border:1px solid rgba(56,255,103,.18);
-
     color:var(--primary);
-
     font-size:.9rem;
-
     margin-bottom:18px;
-
 }
 
-/* ==========================================================
-   RESULTADO PREMIUM
-========================================================== */
+/* ==========================================================   RESULTADO PREMIUM  ========================================================== */
 
 .result-box{
-
     position:relative;
-
     overflow:hidden;
-
 }
 
 .result-box::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:
-
     linear-gradient(
-
         135deg,
-
         rgba(255,255,255,.05),
-
         transparent
-
     );
-
 }
 
 .result-box h3{
-
     animation:pop .5s ease;
-
 }
 
-/* ==========================================================
-   PARTÍCULAS
-========================================================== */
+/* ==========================================================   PARTÍCULAS  ========================================================== */
 
 .particle{
-
     position:fixed;
-
     width:6px;
-
     height:6px;
-
     border-radius:50%;
-
     background:var(--primary);
-
     opacity:.15;
-
     pointer-events:none;
-
     animation:particle 18s linear infinite;
-
 }
 
 .particle:nth-child(1){
-
     left:10%;
     animation-duration:14s;
-
 }
 
 .particle:nth-child(2){
-
     left:30%;
     animation-duration:20s;
 
 }
 
 .particle:nth-child(3){
-
     left:50%;
     animation-duration:18s;
 
 }
 
 .particle:nth-child(4){
-
     left:75%;
     animation-duration:24s;
 
 }
 
 .particle:nth-child(5){
-
     left:90%;
     animation-duration:16s;
 
 }
 
-/* ==========================================================
-   ANIMACIONES
-========================================================== */
+/* ==========================================================   ANIMACIONES  ========================================================== */
 
 @keyframes particle{
-
     from{
-
         transform:translateY(100vh);
-
     }
 
     to{
-
         transform:translateY(-120px);
-
     }
 
 }
 
 @keyframes pop{
-
     0%{
-
         transform:scale(.85);
-
         opacity:.3;
-
     }
 
     100%{
-
         transform:scale(1);
-
         opacity:1;
-
     }
 
 }
 
 @keyframes floatLogo{
-
     0%{
-
         transform:translateY(0);
-
     }
-
     50%{
-
         transform:translateY(-12px);
-
     }
-
     100%{
-
         transform:translateY(0);
-
     }
-
 }
 
-/* ==========================================================
-   RESPONSIVE HERO
-========================================================== */
+/* ==========================================================   RESPONSIVE HERO  ========================================================== */
 
 @media(max-width:768px){
-
 .hero{
-
     margin-bottom:55px;
-
 }
 
 .hero-logo{
-
     width:110px;
-
     height:110px;
-
 }
 
 .hero h1{
-
     font-size:2.4rem;
-
 }
 
 .hero p{
-
     font-size:1rem;
 
 }
-
 }
