@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora ALII</title>
+
+    <meta name="description" content="Calculadora oficial ALII">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <main class="calculator-app">
+
+        <header class="app-header">
+            <h1>Calculadora ALII</h1>
+            <p>
+                Convierte tus puntos y diamantes automáticamente.
+            </p>
+        </header>
+
+        <!-- ===================================== -->
+        <!-- CALCULADORA PUNTOS -->
+        <!-- ===================================== -->
+
+        <section class="calculator-card" id="pointsCalculator">
+
+            <h2>Puntos → USD</h2>
+
+            <div class="form-group">
+
+                <label for="pointsInput">
+                    Puntos
+                </label>
+
+                <input
+                    type="number"
+                    id="pointsInput"
+                    placeholder="Ej: 600000"
+                    min="0">
+
+            </div>
+
+            <button
+                id="calculatePoints"
+                class="btn-primary">
+
+                Calcular
+
+            </button>
+
+            <div class="result-box">
+
+                <span>Resultado</span>
+
+                <h3 id="usdResult">
+
+                    0 USD
+
+                </h3>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================== -->
+        <!-- CALCULADORA DIAMANTES -->
+        <!-- (La implementaremos en la siguiente entrega)
+        <!-- ===================================== -->
+
+        <section
+            class="calculator-card disabled">
+
+            <h2>Diamantes</h2>
+
+            <p>
+                Próximamente...
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="js/calculator.js"></script>
+
+</body>
+
+</html>
