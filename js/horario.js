@@ -2,112 +2,100 @@
     HORARIO OFICIAL ALII
 ==================================================*/
 
-const brasilTime = document.getElementById("brasil-time");
-const timer = document.getElementById("resetTimer");
+const timeZones = {
+    brasil: { id: "brasil-time", zone: "America/Sao_Paulo" },
+    es: { id: "es-time", zone: "Europe/Madrid" },
+    cl: { id: "cl-time", zone: "America/Santiago" },
+    ve: { id: "ve-time", zone: "America/Caracas" },
+    co: { id: "co-time", zone: "America/Bogota" },
+    mx: { id: "mx-time", zone: "America/Mexico_City" }
+};
 
-/*========================
-  Hora Brasil
-========================*/
-
-function updateBrazilTime(){
-
-    const now = new Date();
-
-    const brasil = new Intl.DateTimeFormat("es-ES",{
-        timeZone:"America/Sao_Paulo",
-        hour:"2-digit",
-        minute:"2-digit",
-        second:"2-digit",
-        hour12:false
-    }).format(now);
-
-    if(brasilTime){
-        brasilTime.textContent = brasil;
-    }
-
-}
-
-/*========================
- Cuenta atrás
-========================*/
-
-function updateCountdown(){
+function updateTimes(){
 
     const now = new Date();
 
-    const brazilNow = new Date(
-        now.toLocaleString("en-US",{
-            timeZone:"America/Sao_Paulo"
-        })
-    );
+    Object.values(timeZones).forEach(country=>{
 
-    let reset = new Date(brazilNow);
+        const element = document.getElementById(country.id);
 
-    reset.setHours(24,0,0,0);
+        if(!element) return;
 
-    const diff = reset - brazilNow;
-
-    const h = Math.floor(diff / 3600000);
-
-    const m = Math.floor((diff % 3600000)/60000);
-
-    const s = Math.floor((diff % 60000)/1000);
-
-    if(timer){
-
-        timer.textContent =
-            String(h).padStart(2,"0") + ":" +
-            String(m).padStart(2,"0") + ":" +
-            String(s).padStart(2,"0");
-
-    }
-
-}
-
-/*========================
- Animación órbita
-========================*/
-
-const planets = document.querySelectorAll(".orbit");
-
-let angle = 0;
-
-function rotatePlanets(){
-
-    const radius = 250;
-
-    angle += 0.0025;
-
-    planets.forEach((planet,index)=>{
-
-        const a = angle + index*(Math.PI*2/planets.length);
-
-        const x = Math.cos(a)*radius;
-
-        const y = Math.sin(a)*radius;
-
-        planet.style.left =
-            `calc(50% + ${x}px - 60px)`;
-
-        planet.style.top =
-            `calc(50% + ${y}px - 60px)`;
+        element.textContent = new Intl.DateTimeFormat("es-ES",{
+            timeZone:country.zone,
+            hour:"2-digit",
+            minute:"2-digit",
+            second: country.id==="brasil-time" ? "2-digit" : undefined,
+            hour12:false
+        }).format(now);
 
     });
 
-    requestAnimationFrame(rotatePlanets);
+}
+
+function updateCountdown(){
+
+    const timer=document.getElementById("resetTimer");
+
+    if(!timer) return;
+
+    const now=new Date();
+
+    const brazil=new Date(
+        now.toLocaleString("en-US",{timeZone:"America/Sao_Paulo"})
+    );
+
+    const midnight=new Date(brazil);
+
+    midnight.setHours(24,0,0,0);
+
+    const diff=midnight-brazil;
+
+    const h=Math.floor(diff/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    const s=Math.floor((diff%60000)/1000);
+
+    timer.textContent=
+        `${String(h).padStart(2,"0")}:`+
+        `${String(m).padStart(2,"0")}:`+
+        `${String(s).padStart(2,"0")}`;
 
 }
 
-/*========================
- Iniciar
-========================*/
+/*============ ÓRBITA ============*/
 
-updateBrazilTime();
+const planets=document.querySelectorAll(".orbit");
 
+let angle=0;
+
+function rotate(){
+
+    const radius=250;
+
+    angle+=0.002;
+
+    planets.forEach((planet,index)=>{
+
+        const a=angle+index*(Math.PI*2/planets.length);
+
+        const x=Math.cos(a)*radius;
+
+        const y=Math.sin(a)*radius;
+
+        planet.style.left=`calc(50% + ${x}px - 60px)`;
+
+        planet.style.top=`calc(50% + ${y}px - 60px)`;
+
+    });
+
+    requestAnimationFrame(rotate);
+
+}
+
+updateTimes();
 updateCountdown();
 
-setInterval(updateBrazilTime,1000);
-
+setInterval(updateTimes,1000);
 setInterval(updateCountdown,1000);
 
-rotatePlanets();
+rotate();
