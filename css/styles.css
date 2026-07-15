@@ -865,6 +865,14 @@ footer strong{
     flex-direction:column;
     border-radius:50%;
 }
+.flag{
+    font-size:42px;
+    font-family:
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Noto Color Emoji",
+        sans-serif;
+}
 .center{
 
     position:absolute;
