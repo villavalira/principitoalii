@@ -799,3 +799,410 @@ footer strong{
 
 }
 }
+/*==================================================
+      HORARIO OFICIAL ALII
+==================================================*/
+
+#horario-alii{
+    overflow:hidden;
+}
+
+.orbit-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.orbit-header h2{
+    margin:15px 0;
+    font-size:2rem;
+    color:#fff;
+}
+
+.orbit-wrapper{
+
+    position:relative;
+
+    width:700px;
+
+    height:700px;
+
+    margin:40px auto;
+
+}
+
+/*================ ORBITA ================*/
+
+.orbit-ring{
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:2px solid rgba(56,255,103,.15);
+
+    box-shadow:
+        0 0 35px rgba(56,255,103,.08),
+        inset 0 0 25px rgba(56,255,103,.08);
+
+}
+
+/*================ CENTRO ================*/
+
+.center{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:210px;
+
+    height:210px;
+
+    border-radius:50%;
+
+    background:rgba(17,28,20,.95);
+
+    border:3px solid var(--primary);
+
+    box-shadow:
+        0 0 20px rgba(56,255,103,.35),
+        0 0 60px rgba(56,255,103,.18);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    z-index:5;
+
+}
+
+.planet-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.center .flag{
+
+    font-size:56px;
+
+}
+
+.center h3{
+
+    margin-top:8px;
+
+    font-size:1.3rem;
+
+}
+
+.center .time{
+
+    color:var(--primary);
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin:8px 0;
+
+}
+
+.countdown{
+
+    margin-top:12px;
+
+}
+
+.countdown small{
+
+    display:block;
+
+    color:#bbb;
+
+}
+
+.countdown strong{
+
+    color:var(--primary);
+
+    font-size:1rem;
+
+}
+
+/*================ HALO ================*/
+
+.planet-glow{
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(56,255,103,.25);
+
+    animation:pulseOrbit 3s infinite;
+
+}
+
+/*================ BURBUJAS ================*/
+
+.orbit{
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:rgba(17,28,20,.92);
+
+    border:2px solid rgba(56,255,103,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.orbit:hover{
+
+    transform:scale(1.12);
+
+    border-color:var(--primary);
+
+    box-shadow:
+        0 0 25px rgba(56,255,103,.35);
+
+}
+
+.orbit .flag{
+
+    font-size:34px;
+
+}
+
+.orbit h4{
+
+    margin:6px 0;
+
+    font-size:1rem;
+
+}
+
+.orbit span{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+/*================ POSICIONES ================*/
+
+.orbit-es{
+
+    top:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+.orbit-cl{
+
+    left:60px;
+
+    top:210px;
+
+}
+
+.orbit-ve{
+
+    right:60px;
+
+    top:210px;
+
+}
+
+.orbit-co{
+
+    left:130px;
+
+    bottom:55px;
+
+}
+
+.orbit-mx{
+
+    right:130px;
+
+    bottom:55px;
+
+}
+
+/*================ ANIMACIONES ================*/
+
+@keyframes pulseOrbit{
+
+0%{
+
+transform:scale(.9);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(1.3);
+
+opacity:0;
+
+}
+
+}
+
+/*================ RESPONSIVE ================*/
+
+@media(max-width:768px){
+
+.orbit-wrapper{
+
+width:100%;
+
+height:650px;
+
+}
+
+.orbit-ring{
+
+width:320px;
+
+height:320px;
+
+}
+
+.center{
+
+width:170px;
+
+height:170px;
+
+}
+
+.center .flag{
+
+font-size:42px;
+
+}
+
+.center .time{
+
+font-size:1.6rem;
+
+}
+
+.orbit{
+
+width:90px;
+
+height:90px;
+
+}
+
+.orbit .flag{
+
+font-size:26px;
+
+}
+
+.orbit h4{
+
+font-size:.8rem;
+
+}
+
+.orbit span{
+
+font-size:.75rem;
+
+}
+
+.orbit-es{
+
+top:10px;
+
+}
+
+.orbit-cl{
+
+left:0;
+
+top:220px;
+
+}
+
+.orbit-ve{
+
+right:0;
+
+top:220px;
+
+}
+
+.orbit-co{
+
+left:45px;
+
+bottom:30px;
+
+}
+
+.orbit-mx{
+
+right:45px;
+
+bottom:30px;
+
+}
+
+}
