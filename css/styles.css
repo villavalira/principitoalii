@@ -858,12 +858,26 @@ footer strong{
 
 /*================ CENTRO ================*/
 .planet{
-    position:absolute;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
+    text-align:center;
+    padding:15px;
+}
+.planet-flag-big{
+    width:110px;
+    height:110px;
     border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+
+}
+.planet-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
 }
 .flag{
     font-size:42px;
