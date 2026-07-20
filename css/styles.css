@@ -1555,15 +1555,35 @@ height:95px;
 .flag{
 
 font-size:34px;
+margin-bottom:8px;
+}
+.flag img{
+
+    width:48px;
+
+    height:48px;
+
+    display:block;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    object-fit:cover;
 
 }
-
 .center .flag{
 
-font-size:52px;
+font-size:62px;
 
 }
+.center .flag img{
 
+    width:70px;
+
+    height:70px;
+
+}
 .planet-time{
 
 font-size:22px;
