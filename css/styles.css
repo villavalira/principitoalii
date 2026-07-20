@@ -1221,3 +1221,397 @@ bottom:30px;
 }
 
 }
+
+/*==================================================
+        HORARIO OFICIAL ALII
+==================================================*/
+
+#horario-alii{
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+}
+
+.orbit-container{
+
+    position:relative;
+
+    width:100%;
+
+    height:650px;
+
+    margin-top:40px;
+
+}
+
+.orbit-ring{
+
+    position:absolute;
+
+    width:520px;
+
+    height:520px;
+
+    border:2px solid rgba(0,255,140,.18);
+
+    border-radius:50%;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    box-shadow:
+
+        0 0 40px rgba(0,255,140,.15),
+
+        inset 0 0 30px rgba(0,255,140,.08);
+
+}
+
+.planet{
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(0,255,140,.25);
+
+    box-shadow:
+
+        0 0 30px rgba(0,255,140,.20);
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.planet:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+
+        0 0 45px rgba(0,255,140,.45);
+
+}
+
+.center{
+
+    width:220px;
+
+    height:220px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:20;
+
+    border:2px solid rgba(0,255,140,.35);
+
+}
+
+.planet-glow{
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(circle,
+        rgba(0,255,140,.30),
+        transparent 70%);
+
+    animation:pulseGlow 3s infinite;
+
+}
+
+@keyframes pulseGlow{
+
+    50%{
+
+        transform:scale(1.15);
+
+        opacity:.5;
+
+    }
+
+}
+
+.planet-content{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+.flag{
+
+    font-size:42px;
+
+    margin-bottom:8px;
+
+}
+
+.center .flag{
+
+    font-size:62px;
+
+}
+
+.planet h3{
+
+    color:#fff;
+
+    font-size:22px;
+
+    margin:6px 0;
+
+}
+
+.planet h4{
+
+    color:#fff;
+
+    font-size:17px;
+
+    margin-top:5px;
+
+}
+
+.planet-time{
+
+    color:#00ff95;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin:10px 0;
+
+}
+
+.country-time{
+
+    color:#00ff95;
+
+    font-size:18px;
+
+    margin-top:8px;
+
+    font-weight:bold;
+
+}
+
+.server-text{
+
+    display:block;
+
+    color:#b8b8b8;
+
+    font-size:13px;
+
+    margin-bottom:12px;
+
+}
+
+.countdown-box{
+
+    margin-top:10px;
+
+}
+
+.countdown-box small{
+
+    display:block;
+
+    color:#999;
+
+    margin-bottom:6px;
+
+}
+
+#resetTimer{
+
+    color:#00ff95;
+
+    font-size:26px;
+
+}
+
+/*=============================
+      POSICIONES INICIALES
+==============================*/
+
+.orbit-es{
+
+    left:50%;
+
+    top:40px;
+
+    transform:translateX(-50%);
+
+}
+
+.orbit-cl{
+
+    right:120px;
+
+    top:170px;
+
+}
+
+.orbit-ve{
+
+    right:120px;
+
+    bottom:170px;
+
+}
+
+.orbit-co{
+
+    left:120px;
+
+    bottom:170px;
+
+}
+
+.orbit-mx{
+
+    left:120px;
+
+    top:170px;
+
+}
+
+/*=============================
+      RESPONSIVE
+==============================*/
+
+@media(max-width:900px){
+
+.orbit-container{
+
+height:760px;
+
+}
+
+.orbit-ring{
+
+width:340px;
+
+height:340px;
+
+}
+
+.center{
+
+width:170px;
+
+height:170px;
+
+}
+
+.planet{
+
+width:95px;
+
+height:95px;
+
+}
+
+.flag{
+
+font-size:34px;
+
+}
+
+.center .flag{
+
+font-size:52px;
+
+}
+
+.planet-time{
+
+font-size:22px;
+
+}
+
+.country-time{
+
+font-size:15px;
+
+}
+
+.orbit-es{
+
+top:20px;
+
+}
+
+.orbit-cl{
+
+right:10px;
+
+top:180px;
+
+}
+
+.orbit-ve{
+
+right:10px;
+
+bottom:180px;
+
+}
+
+.orbit-co{
+
+left:10px;
+
+bottom:180px;
+
+}
+
+.orbit-mx{
+
+left:10px;
+
+top:180px;
+
+}
+
+}
