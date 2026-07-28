@@ -11,8 +11,7 @@ class Calculator {
 
         this.POINTS_PER_USD = 600000;
 
-        this.DIAMONDS_VALUE = 0.005; // <- provisional
-
+        this.DIAMONDS_VALUE = 0.0018181818; // 
         /* ======= Elementos ======= */
 
         this.pointsInput =
