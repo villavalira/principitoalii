@@ -13,7 +13,7 @@ class AliiCalculator {
 
         this.POINTS_PER_USD = 600000;
 
-        this.DIAMOND_VALUE = 0.005; // <- Cambia este valor cuando tengamos la fórmula real
+        this.DIAMOND_VALUE = 0.0018181818;
 
         /* ==========================================
             ELEMENTOS
